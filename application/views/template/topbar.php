@@ -19,7 +19,7 @@
                 <li class="nav-item dropdown no-arrow mx-1 show">
                     <a class="nav-link dropdown-toggle" target="_blank" href="<?= base_url('home') ?>">
                         <i class="fas fa-bell fa-globe pr-1"></i>
-                        <span> Website</span>
+                        <span> DASHBOARD</span>
                     </a>
 
                 </li>

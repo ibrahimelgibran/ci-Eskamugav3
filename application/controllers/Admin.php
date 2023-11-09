@@ -40,7 +40,6 @@ class Admin extends CI_Controller
         //Setting point default data semua siswa
         // $this->db->set('point', 100);
         // $this->db->update('siswa');
-
         $data['menu'] = '';
         $data['title'] = 'Dashboard';
         $data['user'] = $this->db->get_where('karyawan', ['email' => $this->session->userdata('email')])->row_array();
@@ -63,6 +62,7 @@ class Admin extends CI_Controller
         if ($data['user']['role_id'] !== '1') {
             $this->db->where_in('id_kelas', $id_kelas);
         }
+        
         $data['sum_siswa'] = $this->db->get("siswa")->num_rows();
         
         if ($data['user']['role_id'] !== '1') {

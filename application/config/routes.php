@@ -35,3 +35,5 @@ $route['manage/jenis_pembayaran/add_payment_bebas_student/(:num)'] = 'set_pembay
 
 $route['manage/jenis_pembayaran/edit_payment_bulan/(:num)/(:num)'] = 'set_pembayaran/edit_payment_bulan/$1/$2';
 $route['manage/pembayaran_ppdb'] = 'manage/data_pembayaran';
+
+$route['auth/signup_siswa'] = 'auth/signup_siswa';

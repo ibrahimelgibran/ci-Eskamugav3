@@ -62,7 +62,7 @@
 
       <header class="section-header">
         <h2></h2>
-        <p>Keunggulan Sekolah Kami</p>
+        <p>Jurusan Sekolah Kami</p>
       </header>
 
       <div class="row">
@@ -113,10 +113,10 @@
 
         <div class="col-lg-3 col-md-6">
           <div class="count-box">
-            <i class="bi bi-bank2" style="color: #ee6c20;"></i>
+            <i class="bi bi-book-half" style="color: #ee6c20;"></i>
             <div>
-              <span data-purecounter-start="0" data-purecounter-end="<?= $sum_pendidikan ?>" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Pendidikan</p>
+              <span data-purecounter-start="0" data-purecounter-end="<?= $sum_pendidikan ?>" data-purecounter-duration="0" class="purecounter">3</span>
+              <p>Jurusan</p>
             </div>
           </div>
         </div>
@@ -158,6 +158,13 @@
             <div class="col-md-6" data-aos="zoom-out" data-aos-delay="200">
               <div class="feature-box d-flex align-items-center">
                 <i class="bi bi-check"></i>
+                <h3>Terakreditasi A</h3>
+              </div>
+            </div>
+
+            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="200">
+              <div class="feature-box d-flex align-items-center">
+                <i class="bi bi-check"></i>
                 <h3>Sistem Pendidikan Terpadu</h3>
               </div>
             </div>
@@ -166,13 +173,6 @@
               <div class="feature-box d-flex align-items-center">
                 <i class="bi bi-check"></i>
                 <h3>Spirit But Modern</h3>
-              </div>
-            </div>
-
-            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="600">
-              <div class="feature-box d-flex align-items-center">
-                <i class="bi bi-check"></i>
-                <h3>Boarding School</h3>
               </div>
             </div>
 
@@ -193,7 +193,7 @@
             <div class="col-md-6" data-aos="zoom-out" data-aos-delay="500">
               <div class="feature-box d-flex align-items-center">
                 <i class="bi bi-check"></i>
-                <h3>International Language</h3>
+                <h3>Orientasi Pekerjaan Terjamin</h3>
               </div>
             </div>
 

@@ -39,6 +39,9 @@
                                     <button type="submit" class="btn btn-success btn-user btn-block">
                                         <b>Login</b>
                                     </button>
+                                    <div class="mt-3" style="text-align:center">
+                                        Register Siswa? <a href="<?= base_url('auth/signup_siswa'); ?>">Signup</a>
+                                    </div>
                                     <hr>
                                 </form>
 

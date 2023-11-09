@@ -10,7 +10,7 @@ $notif_kontak = $this->db->get_where('kontak', ['status' => 1])->num_rows();
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('admin'); ?>">
         <div class="sidebar-brand-icon">
-            <i class="fas fa-home"></i>
+        <img src="<?= base_url('assets'); ?>/img/logo-smk.png" alt="Eskamuga" class="logo" style="width: 50px; height: 50px; margin-right: -10px;">
         </div>
         <?php if ($user['role_id'] == 2) : ?>
             <div class="sidebar-brand-text mx-3">Kesiswaan</div>

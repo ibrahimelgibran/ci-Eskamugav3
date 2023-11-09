@@ -33,7 +33,7 @@
               <?php endif ?>
 
               <?php if (!empty($web['link_tw'])) : ?>
-                <a target="_blank" href="<?= $web['link_tw'] ?>" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a target="_blank" href="<?= $web['link_tw'] ?>" class="youtube"><i class="bi bi-youtube"></i></a>
               <?php endif ?>
 
               <?php if (!empty($web['link_ig'])) : ?>

@@ -44,7 +44,8 @@
                                         <?php endif ?>
                                         </td>
                                         <td><?= $peng['nama'] ?></td>
-                                        <td><?= $rib['nama'] ?></td>
+                                        <td><?= isset($rib['nama']) ? $rib['nama'] : '' ?></td>
+
                                         <td><?= $sum_kursi ?></td>
                                         <td><?= $sum_siswa ?></td>
                                         <td>
