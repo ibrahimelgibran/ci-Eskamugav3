@@ -10,59 +10,61 @@
         cursor: pointer;
     }
 
-input[type="checkbox"][class^="cb"] {
-  display: none;
-}
+    input[type="checkbox"][class^="cb"] {
+        display: none;
+    }
 
-label {
-  border: 1px solid #fff;
-  display: block;
-  position: relative;
-  cursor: pointer;
-}
+    label {
+        border: 1px solid #fff;
+        display: block;
+        position: relative;
+        cursor: pointer;
+    }
 
-label:before {
-  background-color: white;
-  color: white;
-  content: " ";
-  display: block;
-  border-radius: 50%;
-  border: 1px solid grey;
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  width: 25px;
-  height: 25px;
-  text-align: center;
-  line-height: 28px;
-  transition-duration: 0.4s;
-  transform: scale(0);
-}
+    label:before {
+        background-color: white;
+        color: white;
+        content: " ";
+        display: block;
+        border-radius: 50%;
+        border: 1px solid grey;
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        line-height: 28px;
+        transition-duration: 0.4s;
+        transform: scale(0);
+    }
 
-label img {
-  height: 35px;
-  width: 80px;
-  transition-duration: 0.2s;
-  transform-origin: 50% 50%;
-}
+    label img {
+        height: 35px;
+        width: 80px;
+        transition-duration: 0.2s;
+        transform-origin: 50% 50%;
+    }
 
-:checked + label {
-  border-color: #ddd;
-}
+    :checked+label {
+        border-color: #ddd;
+    }
 
-:checked + label:before {
-  content: "✓";
-  background-color: grey;
-  transform: scale(1);
-}
-:checked + .bg {
-    background-color: darkgray;
-    color: white;
-}
-:checked + label img {
-    transform: scale(0.9);
-    z-index: -1;
-}
+    :checked+label:before {
+        content: "✓";
+        background-color: grey;
+        transform: scale(1);
+    }
+
+    :checked+.bg {
+        background-color: darkgray;
+        color: white;
+    }
+
+    :checked+label img {
+        transform: scale(0.9);
+        z-index: -1;
+    }
 </style>
 <main id="main" style="padding-top: 30px;">
 
@@ -97,7 +99,7 @@ label img {
                         </div>
                     <?php endif ?>
                     <div class="col-md-4">
-                        
+
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-success"><i class="fa fa-list-alt fa-fw"></i> <b>Informasi</b></h6>
@@ -166,8 +168,9 @@ label img {
                             <div class="card-body">
                                 <table style="font-size: 14px;" cellpadding="3">
                                     <tbody>
-                                        <?php $sum = 0; foreach ($pembayaran as $d) : ?>
-                                        <?php $sum += $d['jumlah']; ?>
+                                        <?php $sum = 0;
+                                        foreach ($pembayaran as $d) : ?>
+                                            <?php $sum += $d['jumlah']; ?>
                                             <tr>
                                                 <td><?= $d['nama'] ?></td>
                                                 <td>: <?= 'Rp.' . number_format($d['jumlah'], 0, ',', '.') ?></td>
@@ -208,8 +211,25 @@ label img {
                                     </div>
                                     <div class="modal-footer">
                                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                                        <button class="btn btn-success" onclick="$('#payy').submit()"><i class="bi bi-credit-card"></i> Bayar <b><?= 'Rp.' . number_format($sum, 0, ',', '.') ?></b></button>
+                                        <button class="btn btn-success" onclick="redirectToWhatsApp()"><i class="bi bi-credit-card"></i> Bayar <b><?= 'Rp.' . number_format($sum, 0, ',', '.') ?></b></button>
                                     </div>
+
+                                    <!-- Tambahkan script JavaScript di bagian bawah halaman atau dalam tag script -->
+                                    <script>
+                                        function redirectToWhatsApp() {
+                                            // Ganti nomor WhatsApp sesuai kebutuhan
+                                            var adminWhatsAppNumber = "6285876076005";
+
+                                            // Ganti pesan teks sesuai kebutuhan
+                                            var messageText = "Assalamualaikum Saya Calon Siswa PPDB 2024 - 2025.\n\nSeragam Batik : Rp.80.000\n\Pendaftaran : Rp.4.000.000\nTotal pembayaran : Rp.4.080.000,-\n\nTransfer Bank :\n - BSI : 7205751291\n\nBerikan Bukti Transaksi Pembayaran dan Kami konfrimasi lebih lanjut.\n\nSekian Terima Kasih Wassalamualaikum Wr.Wb";
+
+                                            // Encode pesan teks untuk URL
+                                            var encodedMessage = encodeURIComponent(messageText);
+
+                                            // Redirect ke halaman WhatsApp dengan nomor admin dan pesan teks
+                                            window.location.href = "https://api.whatsapp.com/send?phone=" + adminWhatsAppNumber + "&text=" + encodedMessage;
+                                        }
+                                    </script>
                                 </div>
                             </div>
                         </div>
@@ -562,7 +582,7 @@ label img {
                                             <input type="text" class="form-control" id="kelas" name="kelas" placeholder="Kelas" value="<?= $user['kelas'] ?>">
                                             <?= form_error('kelas', '<small class="text-danger pl-3">', ' </small>') ?>
                                         </div>
-                                        
+
                                         <div class="form-group">
                                             <label>Tahun Lulus</label>
                                             <input type="number" class="form-control" id="thn_lls" name="thn_lls" placeholder="Tahun Lulus" value="<?= $user['thn_lls'] ?>">
@@ -639,7 +659,7 @@ label img {
                                             </div>
                                         </div>
 
-                                        
+
                                         <hr class="sidebar-divider">
                                         <hr class="sidebar-divider">
 
@@ -649,7 +669,7 @@ label img {
                                                 <option>- Pilih Periode -</option>
                                                 <?php foreach ($thn_msk as $row) : ?>
                                                     <option <?php if ($user['thn_msk'] == $row['id']) {
-                                                                                    echo "selected='selected'";
+                                                                echo "selected='selected'";
                                                             } ?> value="<?= $row['id'] ?>"><?= $row['period_start'] ?>/<?= $row['period_end'] ?></option>
                                                 <?php endforeach; ?>
                                             </select>
@@ -659,7 +679,7 @@ label img {
                                         <div class="form-group">
                                             <div class="card shadow mb-4">
                                                 <div class="card-header py-3">
-                                                    <h6 class="m-0 font-weight-bold text-primary"><i class="fa fa-university fa-fw"></i> Penempatan</h6>
+                                                    <h6 class="m-0 font-weight-bold text-primary"><i class="fa fa-university fa-fw"></i> Pilih Jurusan</h6>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="row">
@@ -679,7 +699,7 @@ label img {
                                                                 <?= form_error('pendidikan', '<small class="text-danger pl-3">', ' </small>') ?>
                                                             </div>
                                                         </div>
-                                                        
+
                                                         <div id="jurus" class="col-md-12">
                                                             <div class="form-group">
                                                                 <label>Kejuruan</label>
@@ -687,21 +707,21 @@ label img {
                                                                     <option>- Pilih Jurusan -</option>
                                                                     <?php foreach ($jurusan as $s) : ?>
 
-                                                                    <option <?php if ($user['id_majors'] == $s['id']) {
-                                                                                echo "selected='selected'";
-                                                                            } ?> value="<?= $s['id'] ?>"><?= $s['nama'] ?></option>
+                                                                        <option <?php if ($user['id_majors'] == $s['id']) {
+                                                                                    echo "selected='selected'";
+                                                                                } ?> value="<?= $s['id'] ?>"><?= $s['nama'] ?></option>
 
                                                                     <?php endforeach; ?>
                                                                 </select>
                                                                 <?= form_error('jurusan', '<small class="text-danger pl-3">', ' </small>') ?>
                                                             </div>
                                                         </div>
-                                                        
+
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
 
@@ -768,7 +788,7 @@ label img {
 <script type="text/javascript">
     $(document).ready(function() {
         <?php if ($user['id_majors'] == 0) : ?>
-        $("#jurus").hide();
+            $("#jurus").hide();
         <?php endif ?>
         $('#prov').change(function() {
             $.ajax({
@@ -829,9 +849,9 @@ label img {
                 },
                 cache: false,
                 success: function(response) {
-                    if(response == 1){
+                    if (response == 1) {
                         $("#jurus").show();
-                    }else if(response == 0){
+                    } else if (response == 0) {
                         $("#jurus").hide();
                     }
                 }
@@ -849,7 +869,7 @@ label img {
         });
 
         $(document).on('change', ".cb", function() {
-            $(".cb").not(this).prop('checked', false); 
+            $(".cb").not(this).prop('checked', false);
         });
 
     });

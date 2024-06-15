@@ -77,22 +77,23 @@ class Bebas_pay_model extends CI_Model
         }
 
         $this->db->select('bebas_pay.bebas_pay_id, bebas_pay_bill, bebas_pay_number, bebas_pay_desc, bebas_pay_input_date, bebas_pay_last_update');
-        $this->db->select('bebas_pay.bebas_bebas_id, bebas_bill, bebas_total_pay');
-        // $this->db->select_sum('bebas_pay_bill');
-        $this->db->select('student_student_id, nis, siswa.id_kelas, data_pendidikan.nama as pend_name, data_jurusan.nama as majors_name, data_kelas.nama as class_name, siswa.nama, nama_ibu, no_telp');
-        $this->db->select('payment_payment_id, period.id as period_id, payment_type, period_start, period_end, pembayaran.pos_pos_id, pos_name');
-        $this->db->select('user_user_id, karyawan.nama user_full_name');
-        $this->db->join('bebas', 'bebas.bebas_id = bebas_pay.bebas_bebas_id', 'left');
-        $this->db->join('siswa', 'siswa.id = bebas.student_student_id', 'left');
-        $this->db->join('pembayaran', 'pembayaran.payment_id = bebas.payment_payment_id', 'left');
-        $this->db->join('period', 'period.id = pembayaran.period_period_id', 'left');
-        $this->db->join('pos', 'pos.pos_id = pembayaran.pos_pos_id', 'left');
-        $this->db->join('data_pendidikan', 'data_pendidikan.id = siswa.id_pend', 'left');
-        $this->db->join('data_jurusan', 'data_jurusan.id = siswa.id_majors', 'left');
-        $this->db->join('data_kelas', 'data_kelas.id = siswa.id_kelas', 'left');
-        $this->db->join('karyawan', 'karyawan.id = bebas_pay.user_user_id', 'left');
+$this->db->select('bebas_pay.bebas_bebas_id, bebas_bill, bebas_total_pay');
+$this->db->select('student_student_id, nis, siswa.id_kelas, data_pendidikan.nama as pend_name, data_jurusan.nama as majors_name, data_kelas.nama as class_name, siswa.nama, nama_ibu, no_telp');
+$this->db->select('payment_payment_id, period.id as period_id, payment_type, period_start, period_end, pembayaran.pos_pos_id, pos_name');
+$this->db->select('user_user_id, karyawan.nama user_full_name');
+$this->db->group_by('bebas_pay.bebas_pay_id'); // Menambahkan kolom bebas_pay_id ke dalam klausa GROUP BY
+$this->db->join('bebas', 'bebas.bebas_id = bebas_pay.bebas_bebas_id', 'left');
+$this->db->join('siswa', 'siswa.id = bebas.student_student_id', 'left');
+$this->db->join('pembayaran', 'pembayaran.payment_id = bebas.payment_payment_id', 'left');
+$this->db->join('period', 'period.id = pembayaran.period_period_id', 'left');
+$this->db->join('pos', 'pos.pos_id = pembayaran.pos_pos_id', 'left');
+$this->db->join('data_pendidikan', 'data_pendidikan.id = siswa.id_pend', 'left');
+$this->db->join('data_jurusan', 'data_jurusan.id = siswa.id_majors', 'left');
+$this->db->join('data_kelas', 'data_kelas.id = siswa.id_kelas', 'left');
+$this->db->join('karyawan', 'karyawan.id = bebas_pay.user_user_id', 'left');
 
-        $res = $this->db->get('bebas_pay');
+$res = $this->db->get('bebas_pay');
+
 
         if (isset($params['id'])) {
             return $res->row_array();

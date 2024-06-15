@@ -43,7 +43,7 @@
                                          - <?= $majors['nama'] ?>
                                         <?php endif ?>
                                         </td>
-                                        <td><?= $peng['nama'] ?></td>
+                                        <td><?= isset($peng['nama']) ? $peng['nama'] : 'Nama Tidak Tersedia' ?></td>
                                         <td><?= isset($rib['nama']) ? $rib['nama'] : '' ?></td>
 
                                         <td><?= $sum_kursi ?></td>

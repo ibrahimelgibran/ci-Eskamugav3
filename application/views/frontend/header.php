@@ -45,8 +45,24 @@
 
       <a href="<?= base_url('home'); ?>" class="logo d-flex align-items-center">
         <!-- <img src="<?= base_url('assets/'); ?>img/logo.png" alt=""> -->
-        <span><?= $web['nama'] ?></span>
+        <span class="nama-responsif"><?= $web['nama'] ?></span>
       </a>
+      <style>
+      /* CSS untuk mode responsif */
+@media (max-width: 768px) {
+    .nama-responsif {
+        display: none; /* Sembunyikan teks asli */
+    }
+    .logo::before {
+        content: "ESKAMUGA"; /* Tambahkan teks "ESKAMUGA" sebagai konten sebelum teks asli */
+        font-size: 30px; /* Contoh ukuran font */
+        font-weight: bold; /* Contoh gaya font */
+        color: #12855C; /* Contoh warna font */
+    }
+}
+
+
+      </style>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -55,7 +71,7 @@
                                           } ?>" href="<?= base_url('home'); ?>">Home</a></li>
           <li><a class="nav-link scrollto <?php if ($menu == 'acara') {
                                             echo 'active';
-                                          } ?>" href="<?= base_url('acara'); ?>">Acara</a></li>
+                                          } ?>" href="<?= base_url('acara'); ?>">Informasi</a></li> 
           <li><a class="nav-link scrollto <?php if ($menu == 'gallery') {
                                             echo 'active';
                                           } ?>" href="<?= base_url('gallery'); ?>">Gallery</a></li>
@@ -80,7 +96,7 @@
               <li><a href="#">Drop Down 2</a></li>
               <li><a href="#">Drop Down 3</a></li>
               <li><a href="#">Drop Down 4</a></li>
-            </ul>
+            </ul> 
           </li> -->
           <li><a class="getstarted scrollto" href="<?= base_url('auth'); ?>">Login</a></li>
         </ul>

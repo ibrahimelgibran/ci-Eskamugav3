@@ -108,25 +108,25 @@ class Bulan_model extends CI_Model
             $this->db->limit($params['limit'], $params['offset']);
         }
 
-        // $this->db->order_by('month_month_id', 'asc');
-        $this->db->order_by('bulan_id', 'asc');
         $this->db->select('bulan.bulan_id, bulan_bill, bulan_date_pay, bulan_number_pay, bulan_pay_desc, bulan_status, bulan_input_date, bulan_last_update');
-        $this->db->select('student_student_id, siswa.id as student_id, siswa.nama, data_pendidikan.nama as pend_nama, data_kelas.nama as class_name,, data_jurusan.nama as majors_name, img_siswa, nis, nama_ibu');
-        $this->db->select('payment_payment_id, pos_name, period_period_id, period_status, period_start, period_end, payment_type');
-        $this->db->select('month_month_id, month_name');
-        $this->db->select('bulan.student_student_id, bulan.student_student_id, siswa.id as student_id');
-        $this->db->select('siswa.id_pend, data_pendidikan.nama as pend_name');
-        $this->db->join('month', 'month.id = bulan.month_month_id', 'left');
-        $this->db->join('siswa', 'siswa.id = bulan.student_student_id', 'left');
-        $this->db->join('pembayaran', 'pembayaran.payment_id = bulan.payment_payment_id', 'left');
-        $this->db->join('pos', 'pos.pos_id = pembayaran.pos_pos_id', 'left');
-        $this->db->join('data_pembayaran', 'data_pembayaran.id = pembayaran.pos_pos_id', 'left');
-        $this->db->join('period', 'period.id = pembayaran.period_period_id', 'left');
-        $this->db->join('data_kelas', 'data_kelas.id = siswa.id_kelas', 'left');
-        $this->db->join('data_pendidikan', 'data_pendidikan.id = siswa.id_pend', 'left');
-        $this->db->join('data_jurusan', 'data_jurusan.id = siswa.id_majors', 'left');
-        $this->db->join('karyawan', 'karyawan.id = bulan.user_user_id', 'left');
-        $res = $this->db->get('bulan');
+$this->db->select('student_student_id, siswa.id as student_id, siswa.nama, data_pendidikan.nama as pend_nama, data_kelas.nama as class_name,, data_jurusan.nama as majors_name, img_siswa, nis, nama_ibu');
+$this->db->select('payment_payment_id, pos_name, period_period_id, period_status, period_start, period_end, payment_type');
+$this->db->select('month_month_id, month_name');
+$this->db->select('bulan.student_student_id, bulan.student_student_id, siswa.id as student_id');
+$this->db->select('siswa.id_pend, data_pendidikan.nama as pend_name');
+$this->db->group_by('bulan.bulan_id'); // Menambahkan kolom bulan_id ke dalam klausa GROUP BY
+$this->db->join('month', 'month.id = bulan.month_month_id', 'left');
+$this->db->join('siswa', 'siswa.id = bulan.student_student_id', 'left');
+$this->db->join('pembayaran', 'pembayaran.payment_id = bulan.payment_payment_id', 'left');
+$this->db->join('pos', 'pos.pos_id = pembayaran.pos_pos_id', 'left');
+$this->db->join('data_pembayaran', 'data_pembayaran.id = pembayaran.pos_pos_id', 'left');
+$this->db->join('period', 'period.id = pembayaran.period_period_id', 'left');
+$this->db->join('data_kelas', 'data_kelas.id = siswa.id_kelas', 'left');
+$this->db->join('data_pendidikan', 'data_pendidikan.id = siswa.id_pend', 'left');
+$this->db->join('data_jurusan', 'data_jurusan.id = siswa.id_majors', 'left');
+$this->db->join('karyawan', 'karyawan.id = bulan.user_user_id', 'left');
+$res = $this->db->get('bulan');
+
 
         if (isset($params['id'])) {
             return $res->row_array();

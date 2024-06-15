@@ -398,6 +398,39 @@ class Get extends CI_Controller
                 }
             }
             $options .= '</div>';
+            $options .= '<div class="row mb-3">
+            <h5>Admin Sekolah: <p style="color: red;">(Sementara Pembayaran Menggunakan Via Whatapp dan bisa melakukan Transaksi Online, Klick pada logo Eskamuga lalu akan dilanjutkan ke Halaman Whatapp)</p></h5>';
+            
+            $gambarDitampilkan = false;
+            
+            foreach ($chanel as $value) {
+                if (isset($value['whatsapp_number']) && $value['active'] == true && $value['group'] == 'Admin Sekolah') {
+                    $options .= '<div class="card bg shadow col-md-4" onclick="redirectToWhatsApp(\'' . $value['whatsapp_number'] . '\')">
+                        <div class="card-body">
+                            <img src="' . base_url('assets/img/logo-smk.png') . '" alt="Logo" width="80" height="35" onclick="redirectToWhatsApp(\'' . $value['whatsapp_number'] . '\')">
+                        </div>
+                        <p class="text-center">' . $value['name'] . '</p>
+                    </div>';
+            
+                    // Tambahkan pernyataan echo di bawahnya
+                    echo '<script>console.log("' . base_url('assets/img/logo-smk.png') . '");</script>';
+            
+                    $gambarDitampilkan = true;
+                    break;
+                }
+            }
+            
+            // Jika gambar tidak ditampilkan dalam loop, tambahkan satu card tanpa onclick
+            if (!$gambarDitampilkan) {
+                $options .= '<div class="card bg shadow col-md-4">
+                    <div class="card-body">
+                        <img src="' . base_url('assets/img/logo-smk.png') . '" alt="Logo" width="100" height="100" onclick="redirectToWhatsApp(\'085876076005\')">
+                    </div>
+                    <p class="text-center">Lewat Admin</p>
+                </div>';
+            }
+            
+            $options .= '</div>';
             echo $options;
         }
     }

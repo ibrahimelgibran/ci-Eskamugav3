@@ -56,7 +56,15 @@
                                                 <span class="badge badge-info badge-pill disabled float-right" aria-disabled="true"><i class="fa fa-eye"></i></span>
                                             <?php endif ?>
                                         </td>
-                                        <td><?= $kam['nama'] ?></td>
+                                        <?php
+                                        // Pastikan $kam tidak null dan memiliki offset 'nama'
+                                        if ($kam !== null && isset($kam['nama'])) {
+                                            $nama_kam = $kam['nama'];
+                                        } else {
+                                            $nama_kam = ''; // Atau berikan nilai default sesuai kebutuhan Anda
+                                        }
+                                        ?>
+                                        <td><?= $nama_kam ?></td>
                                         <td><?= $d['topik'] ?></td>
                                         <td><?= $d['solusi'] ?></td>
                                         <td><?= mediumdate_indo(date($d['tgl_pengajuan'])); ?></td>
@@ -254,7 +262,7 @@
     $(document).ready(function() {
         $('.js-example-basic-single').select2({
             ajax: {
-                url: "<?= base_url('get/getsiswa/'.$user['id']) ?>",
+                url: "<?= base_url('get/getsiswa/' . $user['id']) ?>",
                 dataType: "json",
                 type: "post",
                 delay: 250,

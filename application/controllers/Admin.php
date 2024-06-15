@@ -606,9 +606,12 @@ class Admin extends CI_Controller
         $kelas     = $this->db->get_where('data_kelas', ['id' => $absen['id_kelas']])->row_array();
         $pend     = $this->db->get_where('data_pendidikan', ['id' => $kelas['id_pend']])->row_array();
         $data_majors     = $this->db->get_where('data_jurusan', ['id' => $kelas['id_jurus']])->row_array();
-        if($pend['majors'] == 1){
-            $majors = ' - '.$data_majors['nama'];
+        if (!empty($data_majors) && is_array($data_majors) && array_key_exists('nama', $data_majors)) {
+            $majors = ' - ' . $data_majors['nama'];
+        } else {
+            $majors = ''; // Atau berikan nilai default sesuai kebutuhan Anda
         }
+        
 
         $data['id_absen'] = $this->input->get('id');
         $data['tgl_absen'] = $this->uri->segment(3);

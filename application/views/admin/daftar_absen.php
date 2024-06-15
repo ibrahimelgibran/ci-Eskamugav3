@@ -55,9 +55,9 @@
                                         <th scope="row"><?= $i ?></th>
                                         <td><?= $rib['nama'] ?></td>
                                         <td><?= $kam['nama'] ?>
-                                        <?php if($rib['majors'] == 1) : ?>
-                                        - <?= $majors['nama'] ?>
-                                        <?php endif ?>
+                                            <?php if (isset($majors['nama']) && $rib['majors'] == 1) : ?>
+                                                - <?= $majors['nama'] ?>
+                                            <?php endif ?>
                                         </td>
                                         <td><?= mediumdate_indo(date($d['tgl'])) ?></td>
                                         <td><?php if ($d['status'] == 'Selesai') : ?>
@@ -297,9 +297,9 @@
                 },
                 cache: false,
                 success: function(response) {
-                    if(response == 1){
+                    if (response == 1) {
                         $("#jurus").show();
-                    }else if(response == 0){
+                    } else if (response == 0) {
                         $("#jurus").hide();
                     }
                 }

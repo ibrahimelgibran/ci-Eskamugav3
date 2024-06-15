@@ -244,7 +244,7 @@
 
                                 <div class="form-group">
                                     <label>Tahun Masuk</label>
-                                    <input type="text" class="form-control" value="<?= $thn_msk['period_start'].'/'.$thn_msk['period_end'] ?>" disabled>
+                                    <input type="text" class="form-control" value="<?= $thn_msk['period_start'] . '/' . $thn_msk['period_end'] ?>" disabled>
                                 </div>
 
                                 <div class="form-group">
@@ -263,10 +263,20 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Kelas</label>
-                                                        <input type="text" class="form-control" value="<?= $kelas['nama'] ?>" disabled>
+                                                        <?php
+                                                        // Pastikan $kelas tidak null sebelum mencoba mengakses offset 'nama'
+                                                        if ($kelas !== null && isset($kelas['nama'])) {
+                                                            $nama_kelas = $kelas['nama'];
+                                                        } else {
+                                                            $nama_kelas = ''; // Atau berikan nilai default sesuai kebutuhan Anda
+                                                        }
+                                                        ?>
+
+                                                        <input type="text" class="form-control" value="<?= $nama_kelas ?>" disabled>
+
                                                     </div>
                                                 </div>
-                                                <?php if($pendidikan['majors'] == 1) : ?>
+                                                <?php if ($pendidikan['majors'] == 1) : ?>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label>Kejuruan</label>

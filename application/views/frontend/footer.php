@@ -21,10 +21,24 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-info">
-            <a href="<?= base_url('home'); ?>" class="logo d-flex align-items-center">
-              <!-- <img src="assets/img/logo.png" alt=""> -->
-              <span><?= $web['nama'] ?></span>
-            </a>
+          <a href="<?= base_url('home'); ?>" class="logo d-flex align-items-center">
+        <!-- <img src="<?= base_url('assets/'); ?>img/logo.png" alt=""> -->
+        <span class="nama-responsif"><?= $web['nama'] ?></span>
+      </a>
+      <style>
+      /* CSS untuk mode responsif */
+@media (max-width: 768px) {
+    .nama-responsif {
+        display: none; /* Sembunyikan teks asli */
+    }
+    .logo::before {
+        content: "ESKAMUGA"; /* Tambahkan teks "ESKAMUGA" sebagai konten sebelum teks asli */
+        font-size: 30px; /* Contoh ukuran font */
+        font-weight: bold; /* Contoh gaya font */
+        color: #12855C; /* Contoh warna font */
+    }
+}
+</style>
             <br />
             <p><?= $web['deskripsi'] ?></p>
             <div class="social-links mt-3">

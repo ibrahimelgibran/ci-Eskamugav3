@@ -86,9 +86,10 @@ class Bebas_model extends CI_Model
     }
 
     $this->db->select('bebas.bebas_id, bebas_bill, bebas_total_pay, bebas_desc, bebas_input_date, bebas_last_update');
-    $this->db->select('student_student_id, siswa.id as student_id, siswa.nama, data_kelas.nama as class_name,, data_jurusan.nama as majors_name, img_siswa, nis, nama_ibu');
+    $this->db->select('student_student_id, siswa.id as student_id, siswa.nama, data_kelas.nama as class_name, data_jurusan.nama as majors_name, img_siswa, nis, nama_ibu');
     $this->db->select('payment_payment_id, pos.pos_name, payment_type, period_period_id, period_start, period_end');
     $this->db->select('siswa.id_pend, data_pendidikan.nama as pend_name');
+    $this->db->group_by('bebas.bebas_id'); // Menambahkan kolom bebas_id ke dalam klausa GROUP BY
     $this->db->join('siswa', 'siswa.id = bebas.student_student_id', 'left');
     $this->db->join('pembayaran', 'pembayaran.payment_id = bebas.payment_payment_id', 'left');
     $this->db->join('pos', 'pos.pos_id = pembayaran.pos_pos_id', 'left');
@@ -97,8 +98,9 @@ class Bebas_model extends CI_Model
     $this->db->join('data_kelas', 'data_kelas.id = siswa.id_kelas', 'left');
     $this->db->join('period', 'period.id = pembayaran.period_period_id', 'left');
     $this->db->join('data_jurusan', 'data_jurusan.id = siswa.id_majors', 'left');
-
+    
     $res = $this->db->get('bebas');
+    
 
     if (isset($params['id'])) {
       return $res->row_array();

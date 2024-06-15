@@ -443,7 +443,7 @@
 
                                         <li>b. Melalui cara pembayaran lainnya yang diberitahukan kepada Anda oleh <?= $web['nama'] ?> secara tertulis atau tertera pada aplikasi. Termasuk namun tidak terbatas pada Credit Card, E-Money, dan Go-Pay.
 
-                                        <li>c. Pembayaran Tunai langsung ke bagian administrasi <?= $web['nama'] ?>, Lantai 2, Jl. Mayor Damar No.167 Kecamatan. Turen, Kabupaten Malang, Jawa Timur 65175. Pembayaran tunai hanya dapat dilakukan selain alamat tersebut. Jika Anda melakukan pembayaran tunai melalui selain yang diinformasikan maka bukan merupakan tanggung jawab kami, segera laporkan kepada pihak <?= $web['nama'] ?> melalui WhatsApp: (+62)811-360-6063.
+                                        <li>c. Pembayaran Tunai langsung ke bagian administrasi <?= $web['nama'] ?>, Jl. Wates No.Km, RW.6, Depok, Ambarketawang, Kec. Gamping, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55294 Pembayaran tunai hanya dapat dilakukan selain alamat tersebut. Jika Anda melakukan pembayaran tunai melalui selain yang diinformasikan maka bukan merupakan tanggung jawab kami, segera laporkan kepada pihak <?= $web['nama'] ?> melalui WhatsApp: (+62)858-7607-6005.
 
                                         <li>d. Jika pembayaran dan informasi pendaftaran Anda tidak tepat, tidak terkini, atau tidak lengkap, kemudian Anda tidak memberitahukan kami secepatnya setelah terjadinya perubahan informasi, kami dapat membekukan atau mengakhiri akun Anda dan menolak menyediakan Anda penggunaan Layanan dalam bentuk apapun.
 
@@ -477,7 +477,7 @@
 
                                     <li><p style="padding-left: 10px;">6.2. Kami berhak untuk menutup atau mengubah atau memperbaharui Syarat dan Ketentuan ini setiap saat tanpa pemberitahuan, dan berhak untuk membuat keputusan akhir jika tidak ada ketidakcocokan. Kami tidak bertanggung jawab atas kerugian dalam bentuk apa pun yang timbul akibat perubahan pada Syarat dan Ketentuan.</p></li>
 
-                                    <li><p style="padding-left: 10px;">6.3. Jika Anda masih memerlukan jawaban atas pertanyaan yang tidak terdapat dalam Syarat dan Ketentuan ini, Anda dapat menghubungi Kami di email sma@bisantara.com atau menghubungi Kami di nomor <?= $web['telp'] ?></p></li>
+                                    <li><p style="padding-left: 10px;">6.3. Jika Anda masih memerlukan jawaban atas pertanyaan yang tidak terdapat dalam Syarat dan Ketentuan ini, Anda dapat menghubungi Kami di email ibrahimelgibran17@gmail.com atau menghubungi Kami di nomor 085876076005</p></li>
 
 
                                 </div>

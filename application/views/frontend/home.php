@@ -7,8 +7,8 @@
         <h1 data-aos="fade-up"><?= $home['judul'] ?></h1>
         <h2 data-aos="fade-up" data-aos-delay="400"><?= $home['isi'] ?></h2>
         <div data-aos="fade-up" data-aos-delay="600">
-          <div class="text-center text-lg-start">
-            <a href="<?= base_url($home['link']); ?>" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+          <div class="text-center text-lg-start" >
+            <a href="<?= base_url($home['link']); ?>" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center" >
               <span><?= $home['tombol'] ?></span>
               <i class="bi bi-arrow-right"></i>
             </a>
@@ -20,8 +20,83 @@
       </div>
     </div>
   </div>
-
 </section><!-- End Hero -->
+
+<div class="ocean">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+              <use xlink:href="#gentle-wave" x="48" y="3" fill="#F5F7F8" />
+              <use xlink:href="#gentle-wave" x="48" y="5" fill="#F5F7F8" />
+              <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="#F5F7F8" />
+            </g>
+        </svg>
+    </div>
+
+<style>
+ .ocean {
+    position: relative;
+    background-color: black;
+}
+
+.waves {
+    position: absolute;
+    width: 100%;
+    height: 15vh;
+    min-height: 80px;
+    max-height: 80px;
+    bottom: 0;
+    left: 0;
+}
+
+.parallax>use {
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+.parallax>use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+}
+
+.parallax>use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+}
+
+.parallax>use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+
+.parallax>use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+
+/*Shrinking for mobile*/
+
+@media (max-width: 768px) {
+    .waves {
+        height: 40px;
+        min-height: 40px;
+    }
+}
+
+</style>
 
 <main id="main">
   <!-- ======= About Section ======= -->
@@ -47,7 +122,7 @@
         </div>
 
         <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-          <img style="height: 400px;width: 650px;" src="<?= base_url('assets/'); ?>img/<?= $about['img'] ?>" class="img-fluid" alt="">
+          <img style="max-width: 100%; height: auto; border-radius: 20px;" src="<?= base_url('assets/'); ?>img/<?= $about['img'] ?>" class="img-fluid" alt="">
         </div>
 
       </div>
@@ -172,7 +247,7 @@
             <div class="col-md-6" data-aos="zoom-out" data-aos-delay="300">
               <div class="feature-box d-flex align-items-center">
                 <i class="bi bi-check"></i>
-                <h3>Spirit But Modern</h3>
+                <h3>Kursus Akses Gratis Seumur Hidup</h3>
               </div>
             </div>
 
@@ -205,6 +280,42 @@
     </div>
 
   </section><!-- End Features Section -->
+
+  <!-- ======= About Section ======= -->
+  <!-- <section id="about" class="about">
+
+    <div class="container" data-aos="fade-up">
+      <div class="row gx-0">
+
+      <header class="section-header">
+        <h2></h2>
+        <p>Siswa Free Akses Course</p>
+      </header>
+
+        <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="content">
+            <h3>Free Course</h3>
+            <h2>ESKAMUGA x GMTpedia</h2>
+            <p>
+            Siswa memiliki akses seumur hidup untuk terus berkembang sebagai seorang profesional, menuju tingkat keahlian yang mereka inginkan dalam bidang tertentu.
+            </p>
+            <div class="text-center text-lg-start">
+              <a href="http://localhost/fiturbelajar/home/sign_up" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Daftar Sekarang</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+                <img style="max-width: 100%; height: auto; border-radius: 20px;" src="<?= base_url('assets/'); ?>img/bg3.png" class="img-fluid" alt="">
+            </div>
+
+      </div>
+    </div>
+
+  </section>End About Section -->
 
   <!-- ======= Portfolio Section ======= -->
   <section id="portfolio" class="portfolio">
